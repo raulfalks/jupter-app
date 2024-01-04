@@ -1,18 +1,19 @@
 import styled from 'styled-components';
 
 export const Section = styled.div`
-  background: url("./rings-horizontal-bg.png");
+  background: url("../deal-description-bg.png");
   background-position: center;
   background-size: cover;
-  height: 100vh;
+  height: 100%;
 	position: relative;
 `;
 
 export const Container = styled.div`
 	align-items: center;
   display: flex;
+	flex-direction: column;
 	height: 100%;
-	justify-content: center;
+	padding: 100px 0 0;
 	position: relative;
 `;
 
@@ -28,30 +29,56 @@ export const ModalContent = styled.div`
   display: flex;
 	flex-direction: column;
 	justify-content: center;
-	max-width: 450px;
+	max-width: 1165px;
 	width: 100%;
 `
 
+export const ModalHeader = styled.div`
+	align-items: center;
+  display: flex;
+  flex-direction: column;
+`;
+
 export const ModalHeading = styled.p`
-  font-size: 30px;
+  font-size: 35px;
 	text-align: center;
 `;
 
-export const CompanyLogoWrapper = styled.div`
-	margin: 40px 0;
-	max-width: 224px;
-  width: 100%;
-`;
-
-export const DealDescriptionSpan = styled.span`
-	color: #FE6433;
-	cursor: pointer;
-	text-decoration: underline;
-`;
-
-export const DealDescription = styled.p`
-	font-size: 30px;
+export const ModalSubtitle = styled.p`
+  font-size: 18px;
 	text-align: center;
+`;
+
+export const DealInformation = styled.div`
+	padding: 40px 0 0;
+`;
+
+export const DealInformationSection = styled.div`
+	margin: 0 0 50px;
+`;
+
+export const DealInformationTitle = styled.h2`
+	color: #9D9D9D;
+	font-size: 35px;
+	margin: 0 0 15px;
+`;
+
+export const DealBulletPoints = styled.p`
+	font-size: 25px;
+`;
+
+export const DealLinksBox = styled.div`
+	display: flex;
+	flex-direction: column;
+`;
+
+export const DealLink = styled.a`
+	color: #FF6B00;
+	font-size: 25px;
+`;
+
+export const WhyToInvest = styled.p`
+	font-size: 25px;
 `;
 
 export const ButtonsBox = styled.div`
@@ -59,14 +86,14 @@ export const ButtonsBox = styled.div`
   display: flex;
 	justify-content: space-between;
 	margin: 60px 0 0;
+	max-width: 450px;
 	width: 100%;
 `;
 
 export const LogoWrapper = styled.div`
 	align-items: center;
-	bottom: 50px;
 	display: flex;
 	justify-content: center;
-	position: absolute;
+	margin: 70px 0;
 	width: 100%;
 `;

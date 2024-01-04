@@ -32,7 +32,7 @@ export const ModalContent = styled.div`
 	width: 100%;
 `
 
-export const ModalHeader = styled.p`
+export const ModalHeading = styled.p`
   font-size: 18px;
 	margin: 0 0 45px;
 	text-align: center;

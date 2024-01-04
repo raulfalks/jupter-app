@@ -10,7 +10,7 @@ import {
   Container,
   Modal,
   ModalContent,
-  ModalHeader,
+  ModalHeading,
   CompanyLogoWrapper,
   DealDescription,
   DealDescriptionSpan,
@@ -23,9 +23,9 @@ export default function Deal() {
       <Container>
         <Modal>
           <ModalContent>
-            <ModalHeader>
+            <ModalHeading>
             Let’s close the deal?
-            </ModalHeader>
+            </ModalHeading>
             <CompanyLogoWrapper>
               <img src="./estus-logo.png"/>
             </CompanyLogoWrapper>
@@ -33,8 +33,8 @@ export default function Deal() {
             Raul’s Startup has closed a deal with: investor name and <DealDescriptionSpan>two more.</DealDescriptionSpan>
             </DealDescription>
             <ButtonsBox>
-              <Link href="/deal"><Button text="I'm onboard!"/></Link>
-              <Link href="/deal"><Button text="Not interested."/></Link>
+              <Link href="deal/description"><Button text="I'm onboard!"/></Link>
+              <Link href="deal/description"><Button text="Not interested."/></Link>
             </ButtonsBox>
           </ModalContent>
         </Modal>

@@ -10,7 +10,7 @@ import {
   Container,
   Modal,
   ModalContent,
-  ModalHeader,
+  ModalHeading,
   ModalForm,
   LogoWrapper } from '../components/page/styles'
 
@@ -20,9 +20,9 @@ export default function Page() {
       <Container>
         <Modal>
           <ModalContent>
-            <ModalHeader>
+            <ModalHeading>
               Join our ecossystem, the path to venture capital's next chapter begins here.
-            </ModalHeader>
+            </ModalHeading>
             <ModalForm method='GET'>
               <Input label="Login" type="text" placeholder="E-mail"/>
               <Input label="Password" type="password" placeholder="Your Jupter pass"/>
