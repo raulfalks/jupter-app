@@ -1,33 +1,37 @@
 'use client';
 
-import { 
-  Container, 
-  SkeletonInner, 
-  SkeletonImg,
-  SkeletonBtn,
-  SkeletonLineOne,
-  SkeletonLineTwo } from '../components/page/styles'
+import Input from '@/components/Input';
+import Button from '@/components/Button';
 
-const Skeleton = () => (
-  <SkeletonInner>
-    <SkeletonImg />
-    <SkeletonBtn />
-    <SkeletonLineOne />
-    <SkeletonLineTwo />
-  </SkeletonInner>
-);
+import { 
+  Section,
+  Container,
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalForm,
+  LogoWrapper } from '../components/page/styles'
 
 export default function Page() {
   return (
-    <div className="space-y-4">
-      <h1 className="text-xl font-medium text-gray-400/80">
-        Styled with Styled Components
-      </h1>
+    <Section>
       <Container>
-        <Skeleton />
-        <Skeleton />
-        <Skeleton />
+        <Modal>
+          <ModalContent>
+            <ModalHeader>
+              Join our ecossystem, the path to venture capital's next chapter begins here.
+            </ModalHeader>
+            <ModalForm method='GET'>
+              <Input label="Login" type="text"/>
+              <Input label="Password" type="password"/>
+              <Button text="Join"/>
+            </ModalForm>
+          </ModalContent>
+        </Modal>
       </Container>
-    </div>
+      <LogoWrapper>
+        <img src="./jupter-logo.png"/>
+      </LogoWrapper>
+    </Section>
   );
 }

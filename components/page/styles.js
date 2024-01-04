@@ -1,43 +1,54 @@
 import styled from 'styled-components';
 
+export const Section = styled.div`
+  background: url("./login-page-bg.png");
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+	position: relative;
+`;
+
 export const Container = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.5rem /* 24px */;
+	align-items: center;
+  display: flex;
+	height: 100%;
+	justify-content: center;
+	position: relative;
 `;
 
-export const SkeletonInner = styled.div`
-  padding: 1rem /* 16px */;
-  background-color: rgb(24 24 27 / 0.8);
-  border-radius: 1rem /* 16px */;
+export const Modal = styled.div`
+  background: var(--BG, linear-gradient(169deg, #282828 8.42%, #202020 48.96%, #202020 95.87%));
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 20px;
+	padding: 50px;
 `;
 
-export const SkeletonImg = styled.div`
-  height: 3.5rem /* 56px */;
-  border-radius: 0.5rem /* 8px */;
-  background-color: rgb(63 63 70 / 1);
+export const ModalContent = styled.div`
+	align-items: center;
+  display: flex;
+	flex-direction: column;
+	justify-content: center;
+	max-width: 300px;
+	width: 100%;
+`
+
+export const ModalHeader = styled.p`
+  font-size: 18px;
+	text-align: center;
 `;
 
-export const SkeletonBtn = styled.div`
-  margin-top: 0.75rem /* 12px */;
-  width: 25%;
-  height: 0.75rem /* 12px */;
-  border-radius: 0.5rem /* 8px */;
-  background-color: rgb(255 0 128 / 1);
+export const ModalForm = styled.form`
+	align-items: center;
+  display: flex;
+	flex-direction: column;
+	justify-content: center;
 `;
 
-export const SkeletonLineOne = styled.div`
-  margin-top: 0.75rem /* 12px */;
-  height: 0.75rem /* 12px */;
-  width: 91.666667%;
-  border-radius: 0.5rem /* 8px */;
-  background-color: rgb(63 63 70 / 1);
-`;
-
-export const SkeletonLineTwo = styled.div`
-  margin-top: 0.75rem /* 12px */;
-  height: 0.75rem /* 12px */;
-  width: 66.666667%;
-  border-radius: 0.5rem /* 8px */;
-  background-color: rgb(63 63 70 / 1);
+export const LogoWrapper = styled.div`
+	align-items: center;
+	bottom: 50px;
+	display: flex;
+	justify-content: center;
+	position: absolute;
+	width: 100%;
 `;
