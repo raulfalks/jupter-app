@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link'
+
 import Input from '@/components/Input';
 import Button from '@/components/Button';
 
@@ -22,9 +24,9 @@ export default function Page() {
               Join our ecossystem, the path to venture capital's next chapter begins here.
             </ModalHeader>
             <ModalForm method='GET'>
-              <Input label="Login" type="text"/>
-              <Input label="Password" type="password"/>
-              <Button text="Join"/>
+              <Input label="Login" type="text" placeholder="E-mail"/>
+              <Input label="Password" type="password" placeholder="Your Jupter pass"/>
+              <Link href="/deal"><Button text="Join"/></Link>
             </ModalForm>
           </ModalContent>
         </Modal>

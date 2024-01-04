@@ -18,6 +18,8 @@ export const InputWrapper = styled.div`
     border-radius: 15px;
     box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.12) inset, 0px 4px 12px 0px rgba(0, 0, 0, 0.08);
     margin: 10px 0 0;
+    outline: none;
+    padding: 20px 18px;
 		width: 100%;
   }
 `;
