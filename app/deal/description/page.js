@@ -72,7 +72,7 @@ export default function Description() {
             </DealInformation>
             <ButtonsBox>
               <Link href="/deal"><Button text="Want to reserve my quota"/></Link>
-              <Link href="/deal"><Button text="Unfollow Deal"/></Link>
+              <Link href="/negative"><Button text="Unfollow Deal"/></Link>
             </ButtonsBox>
           </ModalContent>
         </Modal>
