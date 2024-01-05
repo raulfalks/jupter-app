@@ -84,10 +84,12 @@ export const WhyToInvest = styled.p`
 export const ButtonsBox = styled.div`
 	align-items: center;
   display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	margin: 60px 0 0;
-	max-width: 450px;
-	width: 100%;
+	
+	& > a:first-child {
+		margin: 0 20px 0 0;
+	}
 `;
 
 export const LogoWrapper = styled.div`

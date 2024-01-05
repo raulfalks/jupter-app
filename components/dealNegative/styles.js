@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Section = styled.div`
-  background: url("./rings-horizontal-bg.png");
+  background: url("../rings-horizontal-bg.png");
   background-position: center;
   background-size: cover;
   height: 100vh;
@@ -28,12 +28,25 @@ export const ModalContent = styled.div`
   display: flex;
 	flex-direction: column;
 	justify-content: center;
-	max-width: 450px;
+	max-width: 550px;
 	width: 100%;
 `
 
+export const ModalHeader = styled.div`
+	align-items: center;
+  display: flex;
+  flex-direction: column;
+	margin: 0 0 15px;
+`;
+
 export const ModalHeading = styled.p`
-  font-size: 30px;
+  font-size: 35px;
+	text-align: center;
+`;
+
+export const ModalSubtitle = styled.p`
+  font-size: 18px;
+	margin: 15px 0 0;
 	text-align: center;
 `;
 
@@ -58,11 +71,8 @@ export const ButtonsBox = styled.div`
 	align-items: center;
   display: flex;
 	justify-content: center;
-	margin: 60px 0 0;
-
-	& > a:first-child {
-		margin: 0 20px 0 0;
-	}
+	margin: 60px auto 0;
+	width: 100%;
 `;
 
 export const LogoWrapper = styled.div`

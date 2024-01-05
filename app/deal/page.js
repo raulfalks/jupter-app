@@ -34,7 +34,7 @@ export default function Deal() {
             </DealDescription>
             <ButtonsBox>
               <Link href="deal/description"><Button text="I'm onboard!"/></Link>
-              <Link href="deal/description"><Button text="Not interested."/></Link>
+              <Link href="deal/negative"><Button text="Not interested"/></Link>
             </ButtonsBox>
           </ModalContent>
         </Modal>

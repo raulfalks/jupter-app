@@ -71,8 +71,8 @@ export default function Description() {
               </DealInformationSection>
             </DealInformation>
             <ButtonsBox>
-              <Link href="/deal"><Button text="I'm onboard!"/></Link>
-              <Link href="/deal"><Button text="Not interested."/></Link>
+              <Link href="/deal"><Button text="Want to reserve my quota"/></Link>
+              <Link href="/deal"><Button text="Unfollow Deal"/></Link>
             </ButtonsBox>
           </ModalContent>
         </Modal>
