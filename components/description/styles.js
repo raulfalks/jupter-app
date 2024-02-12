@@ -1,4 +1,15 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const SlideIn = keyframes`
+  0% { 
+		opacity: 0; 
+		transform: translate3d(0, 4%, 0);
+	}
+  100% { 
+		opacity: 1;
+		transform: translate3d(0, 0, 0); 
+	}
+`
 
 export const Section = styled.div`
   background: url("../deal-description-bg.png");
@@ -18,6 +29,7 @@ export const Container = styled.div`
 `;
 
 export const Modal = styled.div`
+	animation: ${SlideIn} 0.6s ease-out;
   background: var(--BG, linear-gradient(169deg, #282828 8.42%, #202020 48.96%, #202020 95.87%));
   border: 1px solid rgba(255, 255, 255, 0.10);
   border-radius: 40px;
