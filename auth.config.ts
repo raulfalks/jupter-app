@@ -1,4 +1,36 @@
 import type { NextAuthConfig } from 'next-auth';
+
+
+export enum Routes {
+    Deals = "/deals",
+    DealsOnboard = "/deals/onboard",
+    SignIn = "/"
+}
+
+
+export function getAuthorization(
+    pathname: string,
+    token?: string,
+    role?: string
+) {
+    switch (pathname) {
+        case Routes.Deals.toString():
+            if (token && role?.includes("Investor")) return true;
+            return false;
+
+        case Routes.DealsOnboard.toString():
+            if (token && role?.includes("Founder")) return true;
+            return false;
+
+        case Routes.SignIn.toString():
+            if (token && role) return false;
+            return true;
+            
+        default:
+            break;
+    }
+}
+
  
 export const authConfig = {
     pages: {
@@ -14,30 +46,33 @@ export const authConfig = {
          */
         authorized({ auth, request: { nextUrl } }) {
             const isLoggedIn = !!auth?.user;
-            const isOnDashboard = nextUrl.pathname.startsWith('/deals');
+            const isAuthorized = getAuthorization(
+                nextUrl.pathname, 
+                auth?.user.token,
+                auth?.user.role?.toString());
 
-            if (isOnDashboard) {
-                if (isLoggedIn) return true;
-                return false; // Redirect unauthenticated users to login page
-            } else if (isLoggedIn) {
-                return Response.redirect(new URL('/deals', nextUrl));
+            if (isAuthorized) return true;
+
+            if (isLoggedIn && auth.user.token) {
+                if (auth.user.role?.includes("Investor")) {
+                    return Response.redirect(new URL('/deals', nextUrl));
+                }
+                return Response.redirect(new URL('/deals/onboard', nextUrl));
             }
-
-            return true;
-        },
-        async signIn({ user }) {
-            if (user && user.token && user.id) return true;
 
             return false;
         },
-        // async redirect({ url, baseUrl }) {
-        //     return baseUrl
-        // },
+        async signIn({ user }) {
+            if (user && user.token && user.id && user.role) return true;
+
+            return false;
+        },
         async session({ session, token }) {
             try {
                 if (token && session.user) {
                     session.user.role = token.role;
                     session.sessionToken = token.token;
+                    session.user.token = token.token;
                     session.userId = token.id!;
                     session.expires = token.expiration!;
                 }
@@ -64,3 +99,6 @@ export const authConfig = {
     },
     providers: [], // Add providers with an empty array for now
 } satisfies NextAuthConfig;
+
+
+
