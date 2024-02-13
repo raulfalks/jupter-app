@@ -1,9 +1,13 @@
 "use client";
 
-import { authenticate } from "@/app/lib/actions";
 import styles from "./form.module.css";
 
-import { useFormState, useFormStatus } from "react-dom";
+import { authenticate } from "@/app/lib/actions";
+
+import { 
+    useFormState, 
+    useFormStatus 
+} from "react-dom";
 import {
     ExclamationCircleIcon
 } from '@heroicons/react/24/outline';

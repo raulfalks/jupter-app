@@ -1,6 +1,6 @@
-import Button from "@/app/ui/components/Buttons/buttons";
-
 import styles from './skeletons.module.css';
+import { Button } from '@/app/ui/components/Buttons/buttons';
+
 import Image from "next/image";
 import Link from "next/link";
 

@@ -1,8 +1,8 @@
-import { signOut } from '@/auth';
 import styles from './account-button.module.css';
 
+import { signOut } from '@/auth';
+
 import Image from 'next/image';
-import Link from 'next/link';
 
 
 export default function AccountButton() {

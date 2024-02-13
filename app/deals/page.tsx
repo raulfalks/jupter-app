@@ -1,17 +1,14 @@
+import styles from './deals.module.css';
+
 import AccountButton from '@/app/ui/components/AccountButton/account-button';
 import Logo from '@/app/ui/components/Logo/jupter-logo';
 import { Button } from '@/app/ui/components/Buttons/buttons';
-import {
-    DealPageSkeleton 
-} from '@/app/ui/skeletons/skeletons';
 
-import styles from './deals.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Suspense } from 'react';
 
 
-export default function Deals() {
+export default function Page() {
     return (
         <div className={styles.Section}>
             <div className={styles.Container}>
