@@ -1,0 +1,8 @@
+.LogoWrapper {
+    align-items: center;
+	bottom: 50px;
+	display: flex;
+	justify-content: center;
+	position: absolute;
+	width: 100%;
+}
