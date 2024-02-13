@@ -1,6 +1,6 @@
 import styles from "@/app/home.module.css";
 import Logo from "@/app/ui/components/Logo/jupter-logo";
-import SignInForm from "@/app/ui/components/SignIn/signin-form";
+import SignInForm from "@/app/ui/components/SignInForm/signin-form";
 
 
 export default function Page() {
@@ -13,7 +13,6 @@ export default function Page() {
                             Join our ecossystem, the path to venture capital's next chapter begins here.
                         </p>
                         <SignInForm 
-                            btnText="Join"
                             emailLabel="Login"
                             passwordLabel="Password"
                         />

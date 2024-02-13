@@ -3,7 +3,7 @@ import Logo from '@/app/ui/components/Logo/jupter-logo';
 
 import Link from 'next/link';
 import styles from './onboard.module.css';
-import AccountButton from '@/app/ui/components/Deals/account-button';
+import AccountButton from '@/app/ui/components/AccountButton/account-button';
 import Image from 'next/image';
 
 

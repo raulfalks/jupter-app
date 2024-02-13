@@ -1,4 +1,4 @@
-import styles from './deals-component.module.css';
+import styles from "./text-area.module.css";
 
 
 export default function TextArea({

@@ -1,7 +1,7 @@
 import { NotInterestedButton } from '@/app/ui/components/Buttons/buttons';
 import styles from './not-interested.module.css';
-import TextArea from '@/app/ui/components/Deals/text-area';
-import AccountButton from '@/app/ui/components/Deals/account-button';
+import TextArea from '@/app/ui/components/TextArea/text-area';
+import AccountButton from '@/app/ui/components/AccountButton/account-button';
 import Logo from '@/app/ui/components/Logo/jupter-logo';
 import Image from 'next/image';
 

@@ -1,4 +1,4 @@
-import AccountButton from '@/app/ui/components/Deals/account-button';
+import AccountButton from '@/app/ui/components/AccountButton/account-button';
 import Logo from '@/app/ui/components/Logo/jupter-logo';
 import { Button } from '@/app/ui/components/Buttons/buttons';
 import {
