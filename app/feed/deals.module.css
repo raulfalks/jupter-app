@@ -1,0 +1,22 @@
+.Section {
+    background: url("../../public/rings-horizontal-bg.png");
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+	position: relative;
+}
+
+.Container {
+    align-items: center;
+    display: flex;
+	height: 100%;
+	justify-content: center;
+	position: relative;
+}
+
+.Modal {
+    background: var(--BG, linear-gradient(169deg, #282828 8.42%, #202020 48.96%, #202020 95.87%));
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 20px;
+	padding: 30px 50px;
+}

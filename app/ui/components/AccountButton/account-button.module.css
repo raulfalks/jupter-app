@@ -10,3 +10,11 @@
     top: 25px;
     width: 60px;
 }
+
+.FormWrapper {
+    background: none;
+    border: none;
+    border-radius: 100%;
+    cursor: pointer;
+    outline: none;
+}

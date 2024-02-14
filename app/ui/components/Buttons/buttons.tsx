@@ -1,6 +1,6 @@
-import localFont from 'next/font/local';
 import styles from './buttons.module.css';
-import Link from 'next/link';
+
+import localFont from 'next/font/local';
 
 
 const consolas = localFont({
@@ -27,12 +27,10 @@ export function NotInterestedButton({
     text: string
 }) {
     return (
-        <div className={styles.ButtonWrapper}>
-            <Link href="/deals">
-                <button className={consolas.className}>
-                        {text}
-                </button>
-            </Link>
+        <div className={styles.NotInterestedButton}>
+            <p className={consolas.className}>
+                {text}
+            </p>
         </div>
     );
 }
