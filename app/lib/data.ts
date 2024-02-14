@@ -5,6 +5,7 @@ import { unstable_noStore as noStore } from "next/cache";
 import getServerSession from 'next-auth';
 
 
+// await new Promise((resolve) => setTimeout(resolve, 5000)); // For testing
 export async function fetchFounderProfileData(companyId: number) {
     noStore();
 

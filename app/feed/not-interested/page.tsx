@@ -27,7 +27,6 @@ export default function Page() {
                     </div>
                 </div>
             </div>
-            <AccountButton />
             <div className={styles.LogoWrapper}>
                 <Image 
                     alt='Jupter logo'

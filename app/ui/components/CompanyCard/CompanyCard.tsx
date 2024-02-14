@@ -1,7 +1,6 @@
-'use client';
-
 import styles from './company-card.module.css';
 
+import { fetchFounderProfileData } from '@/app/lib/data';
 import { FounderProfile } from '@/app/lib/definitions';
 import { 
     Button, 
@@ -12,11 +11,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 
-export default function CompanyCard({
-    founderProfile
+export default async function CompanyCard({
+    id
 }: {
-    founderProfile: FounderProfile
+    id: number
 }) {
+    const founderProfile = await fetchFounderProfileData(id);
+
+
     return (
         <div className={styles.ModalContent}>
             <p className={styles.ModalHeading}>
