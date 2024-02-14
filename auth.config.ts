@@ -2,8 +2,11 @@ import type { NextAuthConfig } from 'next-auth';
 
 
 export enum Routes {
-    Deals = "/deals",
-    DealsOnboard = "/deals/onboard",
+    Feed = "/feed",
+    FeedNotInterested = "/feed/not-interested",
+    FeedOnBoard = "/feed/onboard",
+    FounderProfile = "/founder-profile",
+    InvestorProfile = "/investor-profile",
     SignIn = "/"
 }
 
@@ -14,12 +17,30 @@ export function getAuthorization(
     role?: string
 ) {
     switch (pathname) {
-        case Routes.Deals.toString():
-            if (token && role?.includes("Investor")) return true;
+        case Routes.Feed.toString():
+            if (token 
+                && (role?.includes("Investor") || role?.includes("Founder"))
+                ) return true;
             return false;
 
-        case Routes.DealsOnboard.toString():
+        case Routes.FeedNotInterested.toString():
+            if (token 
+                && (role?.includes("Investor") || role?.includes("Founder"))
+                ) return true;
+            return false;
+
+        case Routes.FeedOnBoard.toString():
+            if (token 
+                && (role?.includes("Investor") || role?.includes("Founder"))
+                ) return true;
+            return false;
+
+        case Routes.FounderProfile.toString():
             if (token && role?.includes("Founder")) return true;
+            return false;
+
+        case Routes.InvestorProfile.toString():
+            if (token && role?.includes("Investor")) return true;
             return false;
 
         case Routes.SignIn.toString():
@@ -55,9 +76,9 @@ export const authConfig = {
 
             if (isLoggedIn && auth.user.token) {
                 if (auth.user.role?.includes("Investor")) {
-                    return Response.redirect(new URL('/deals', nextUrl));
+                    return Response.redirect(new URL('/investor-profile', nextUrl));
                 }
-                return Response.redirect(new URL('/deals/onboard', nextUrl));
+                return Response.redirect(new URL('/founder-profile', nextUrl));
             }
 
             return false;
@@ -74,6 +95,7 @@ export const authConfig = {
                     session.sessionToken = token.token;
                     session.user.token = token.token;
                     session.userId = token.id!;
+                    session.user.id = token.id!;
                     session.expires = token.expiration!;
                 }
 
