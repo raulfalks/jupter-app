@@ -14,7 +14,7 @@ export default function AccountButton() {
                     await signOut();
                 }}
             >
-                <button>
+                <button className={styles.FormWrapper}>
                     <Image 
                         alt='Account button'
                         height={45}

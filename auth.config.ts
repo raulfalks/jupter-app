@@ -4,7 +4,7 @@ import type { NextAuthConfig } from 'next-auth';
 export enum Routes {
     Feed = "/feed",
     FeedNotInterested = "/feed/not-interested",
-    FeedOnBoard = "/feed/onboard",
+    FeedMoreInfo = "/feed/more-info",
     FounderProfile = "/founder-profile",
     InvestorProfile = "/investor-profile",
     SignIn = "/"
@@ -29,7 +29,7 @@ export function getAuthorization(
                 ) return true;
             return false;
 
-        case Routes.FeedOnBoard.toString():
+        case Routes.FeedMoreInfo.toString():
             if (token 
                 && (role?.includes("Investor") || role?.includes("Founder"))
                 ) return true;

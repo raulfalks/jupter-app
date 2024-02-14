@@ -1,9 +1,9 @@
+import styles from './onboard.module.css';
+
 import { Button } from '@/app/ui/components/Buttons/buttons';
-import Logo from '@/app/ui/components/Logo/jupter-logo';
+import AccountButton from '@/app/ui/components/AccountButton/account-button';
 
 import Link from 'next/link';
-import styles from './onboard.module.css';
-import AccountButton from '@/app/ui/components/AccountButton/account-button';
 import Image from 'next/image';
 
 

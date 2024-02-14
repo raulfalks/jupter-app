@@ -1,18 +1,3 @@
-.Container {
-    align-items: center;
-    display: flex;
-	height: 100%;
-	justify-content: center;
-	position: relative;
-}
-
-.Modal {
-    background: var(--BG, linear-gradient(169deg, #282828 8.42%, #202020 48.96%, #202020 95.87%));
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    border-radius: 20px;
-	padding: 30px;
-}
-
 .ModalContent {
     align-items: center;
     display: flex;
@@ -23,18 +8,30 @@
 }
 
 .ModalHeading {
-    font-size: 30px;
+    font-size: 25px;
 	text-align: center;
 }
 
 .CompanyLogoWrapper {
+    background: linear-gradient(150deg, rgba(255, 255, 255, 0.266), rgb(32,32,32));
+    padding: 0.5px;
+    border-radius: 1rem;
+    display: flex;
     margin: 40px 0;
-	max-width: 224px;
+    max-height: 150px;
+    max-width: 150px;
     width: 100%;
 }
 
+.ProfileImage {
+    border: 4px solid rgb(0, 0, 0);
+    border-radius: 1rem;
+    max-height: 150px;
+    max-width: 150px;
+}
+
 .DealDescription {
-    font-size: 30px;
+    font-size: 25px;
 	text-align: center;
 }
 
@@ -47,8 +44,10 @@
 .ButtonsBox {
     align-items: center;
     display: flex;
+    flex-direction: column;
 	justify-content: center;
 	margin: 60px 0 0;
+    row-gap: 15px;
 }
 
 .ButtonLink:first-child {
