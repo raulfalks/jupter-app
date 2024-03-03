@@ -9,7 +9,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 
-export function CompanyCardSkeleton() {
+export function FounderProfileCardSkeleton() {
     return (
         <div className={styles.ModalContent}>
             <p className={styles.ModalHeading}>

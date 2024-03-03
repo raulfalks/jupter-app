@@ -1,8 +1,47 @@
 import { authConfig } from "@/auth.config";
-import { FounderProfile } from './definitions';
+import { FounderProfile, GetFounderProfileResponse } from './definitions';
+import { signOut } from "@/auth";
 
 import { unstable_noStore as noStore } from "next/cache";
 import getServerSession from 'next-auth';
+
+
+export async function fetchFeedProfilesData(
+    pageNumber: number,
+    keyword?: string
+    ) {
+    noStore();
+
+    const session = await getServerSession(authConfig);
+
+    const user = await session.auth().then(e => e?.user);
+
+    try {
+        const result = await fetch('http://localhost:5065/api/FounderProfile/GetFeedProfiles', {
+            body: JSON.stringify({
+                keyword: keyword,
+                pageNumber: pageNumber,
+                take: 1,
+                userId: user?.id
+            }),
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${user?.token}`
+            },
+            method: 'POST'
+        });
+
+        if (result.status == 404) return null;
+
+        const response = await result.json();
+        var list = response.profiles as GetFounderProfileResponse[];
+
+        return list.at(0);
+    } catch (error) {
+        console.log('API Error: ', error);
+        throw new Error('Failed to fetch the profiles for the feed.');
+    }
+}
 
 
 // await new Promise((resolve) => setTimeout(resolve, 5000)); // For testing
@@ -20,8 +59,11 @@ export async function fetchFounderProfileData(companyId: number) {
                 Authorization: `Bearer ${user?.token}`
             }
         });
+        
+        if (result.status == 404) return null;
 
         const response = await result.json();
+
         const image = `data:${response.profileImage.contentType};base64,${response.profileImage.fileContents}`;
 
         return { 
