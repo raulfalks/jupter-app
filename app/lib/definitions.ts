@@ -7,6 +7,13 @@ export type Company = {
 };
 
 
+export type GetFounderProfileResponse = {
+    founderProfile: FounderProfile;
+    profileImage?: any;
+    contentType?: string;
+}
+
+
 export type FounderProfile = {
     id: string;
     contentType?: string;

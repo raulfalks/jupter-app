@@ -11,44 +11,27 @@ export enum Routes {
 }
 
 
-export function getAuthorization(
-    pathname: string,
-    token?: string,
-    role?: string
+export function validateRouteAuthorization(
+    pathname: string
 ) {
     switch (pathname) {
         case Routes.Feed.toString():
-            if (token 
-                && (role?.includes("Investor") || role?.includes("Founder"))
-                ) return true;
-            return false;
+            return true;
 
         case Routes.FeedNotInterested.toString():
-            if (token 
-                && (role?.includes("Investor") || role?.includes("Founder"))
-                ) return true;
-            return false;
+            return true;
 
         case Routes.FeedMoreInfo.toString():
-            if (token 
-                && (role?.includes("Investor") || role?.includes("Founder"))
-                ) return true;
-            return false;
+            return true;
 
         case Routes.FounderProfile.toString():
-            if (token && role?.includes("Founder")) return true;
-            return false;
+            return true;
 
         case Routes.InvestorProfile.toString():
-            if (token && role?.includes("Investor")) return true;
-            return false;
-
-        case Routes.SignIn.toString():
-            if (token && role) return false;
             return true;
             
         default:
-            break;
+            return false;
     }
 }
 
@@ -66,22 +49,29 @@ export const authConfig = {
          * @returns Logged in users are authenticated, otherwise they're redirected to sign-in page.
          */
         authorized({ auth, request: { nextUrl } }) {
-            const isLoggedIn = !!auth?.user;
-            const isAuthorized = getAuthorization(
-                nextUrl.pathname, 
-                auth?.user.token,
-                auth?.user.role?.toString());
+            var isLoggedIn = false;
+            var params = nextUrl.searchParams;
+            var param = params.get("callbackUrl");
+            var callbackUrl = !!param ? new URL(param!) : undefined;
+            var expires = !!auth?.expires ? new Date(auth?.expires) : null;
+            var now = new Date();
 
-            if (isAuthorized) return true;
+            if (!!auth?.user && !!auth.user.role && !!auth.user.token && (!!expires && expires > now))
+                isLoggedIn = true;
 
-            if (isLoggedIn && auth.user.token) {
-                if (auth.user.role?.includes("Investor")) {
-                    return Response.redirect(new URL('/investor-profile', nextUrl));
-                }
-                return Response.redirect(new URL('/founder-profile', nextUrl));
+            const isAuthorizationNeeded = validateRouteAuthorization(nextUrl.pathname);
+            
+            if (isAuthorizationNeeded) {
+                if (isLoggedIn) return true;
+                
+                return false;   // Redirect unauthenticated users to login page
+            } else if (isLoggedIn) {
+                if (callbackUrl && callbackUrl?.pathname.length > 1) return Response.redirect(callbackUrl);
+                
+                return Response.redirect(new URL('/feed', nextUrl));
             }
-
-            return false;
+            
+            return true;
         },
         async signIn({ user }) {
             if (user && user.token && user.id && user.role) return true;
