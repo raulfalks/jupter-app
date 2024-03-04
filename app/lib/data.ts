@@ -1,15 +1,46 @@
 import { authConfig } from "@/auth.config";
-import { FounderProfile, GetFounderProfileResponse } from './definitions';
-import { signOut } from "@/auth";
+import { Company, FounderProfile, GetFounderProfileResponse } from './definitions';
 
 import { unstable_noStore as noStore } from "next/cache";
 import getServerSession from 'next-auth';
 
 
+export async function fetchCompanyMoreInfo(
+    founderId: number
+) {
+    noStore();
+
+    const session = await getServerSession(authConfig);
+
+    const user = await session.auth().then(e => e?.user);
+
+    try {
+        const result = await fetch(`http://localhost:5065/api/FounderCompany/GetMoreInfo?founderId=${founderId}`, {
+            headers: {
+                Authorization: `Bearer ${user?.token}`,
+                'Content-Type': 'application/json',
+            },
+            method: 'GET'
+        });
+
+        if (result.status == 404) return null;
+
+        const response = await result.json();
+        var company = response.founderCompany as Company;
+        var founderProfile = response.founderProfile as FounderProfile;
+        founderProfile.company = company;
+
+        return founderProfile;
+    } catch (error) {
+        console.log('API Error: ', error);
+        throw new Error('Failed to fetch more info of the company.');
+    }
+}
+
 export async function fetchFeedProfilesData(
     pageNumber: number,
     keyword?: string
-    ) {
+) {
     noStore();
 
     const session = await getServerSession(authConfig);

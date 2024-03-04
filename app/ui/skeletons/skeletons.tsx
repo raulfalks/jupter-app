@@ -28,10 +28,10 @@ export function FounderProfileCardSkeleton() {
                 Let’s close a deal?
             </p>
             <div className={styles.ButtonsBox}>
-                <Link className={styles.DisabledLink} aria-disabled href="feed/more-info">
+                <Link className={styles.DisabledLink} aria-disabled href="">
                     <Button text="More info"/>
                 </Link>
-                <Link className={styles.DisabledLink} href="feed/not-interested">
+                <Link className={styles.DisabledLink} href="">
                     <NotInterestedButton text='Not interested'/>
                 </Link>
             </div>

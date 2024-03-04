@@ -1,74 +1,83 @@
-import styles from './onboard.module.css';
+import styles from './more-info.module.css';
 
 import { Button } from '@/app/ui/components/Buttons/buttons';
-import AccountButton from '@/app/ui/components/AccountButton/account-button';
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { fetchCompanyMoreInfo } from '@/app/lib/data';
+import { redirect } from 'next/navigation';
 
 
-export default function Page() {
+export default async function Page({
+    searchParams
+}: {
+    searchParams: 
+    { 
+        id: string 
+    }
+}) {
+    const founderId = Number(searchParams.id);
+    const founderProfile = await fetchCompanyMoreInfo(founderId);
+    
+    console.log("\n---------------------------------\n");
+    console.log(founderProfile);
+    console.log("\n---------------------------------\n");
+
+
     return (
-        <div className={styles.Section}>
-            <div className={styles.Container}>
-                <div className={styles.Modal}>
-                    <div className={styles.ModalContent}>
-                        <div className={styles.ModalHeader}>
-                            <p className={styles.ModalHeading}>
-                                That is awesome!
-                            </p>
-                            <p className={styles.ModalSubtitle}>
-                                Check below the list of investors on this deal and how to proceed!
-                            </p>
-                        </div>
-                        <div className={styles.DealInformation}>
-                            <div className={styles.DealInformationSection}>
-                                <h2 className={styles.DealInformationTitle}>Brief Description:</h2>
-                                <p className={styles.DealBulletPoints}>- Rodada de R$ 32 milhões</p>
-                                <p className={styles.DealBulletPoints}>- ARR de R$ 220 milhões e EV/ARR de 3.2x</p>
-                                <p className={styles.DealBulletPoints}>- Startup em break even, com alto crescimento e geração de receita ‍</p>
-                                <p className={styles.DealBulletPoints}>- Crescimento incrível de 135% em 2021‍‍</p>
-                                <p className={styles.DealBulletPoints}>- Mais de R$ 122 milhões em receita em 2022 com estimativa de chegar a R$1 Bilhão em 2027‍</p>
-                                <p className={styles.DealBulletPoints}>- Aproximadamente R$ 10 Bilhões transacionados em 2022</p>
-                                <p className={styles.DealBulletPoints}>- 96 mil clientes em 2022 representando 63% de crescimento no ano‍</p>
-                                <p className={styles.DealBulletPoints}>- Valuation de R$ 700 milhões pre money com receita projetada superior a R$ 300 milhões nos próximos 12 meses</p>
-                            </div>
-                            <div className={styles.DealInformationSection}>
-                                <h2 className={styles.DealInformationTitle}>Links:</h2>
-                                <div className={styles.DealLinksBox}>
-                                    <a className={styles.DealLink}>Deal Room</a>
-                                    <a className={styles.DealLink}>Deal Memo</a>
-                                    <a className={styles.DealLink}>Deal FAQ</a>
-                                </div>
-                            </div>
-                            <div className={styles.DealInformationSection}>
-                                <h2 className={styles.DealInformationTitle}>Why should you invest:</h2>
-                                <p className={styles.WhyToInvest}>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                </p>
-                            </div>
-                            <div className={styles.DealInformationSection}>
-                                <h2 className={styles.DealInformationTitle}>Meet the founders:</h2>
-                                <p className={styles.WhyToInvest}>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                </p>
-                            </div>
-                        </div>
-                        <div className={styles.ButtonsBox}>
-                            <Link className={styles.ButtonLink} href="/deals"><Button text="Reserve my quota"/></Link>
-                            <Link href="/deals/not-interested"><Button text="Unfollow Deal"/></Link>
-                        </div>
-                    </div>
+        <div className={styles.ModalContent}>
+            <div className={styles.ModalHeader}>
+                <p className={styles.ModalHeading}>
+                    That is awesome!
+                </p>
+                <p className={styles.ModalSubtitle}>
+                    Check below some other organization's infos that might bring you interest.
+                </p>
+            </div>
+            <div className={styles.DealInformation}>
+                <div className={styles.DealInformationSection}>
+                    <p className={styles.DealInformationTitle}>Role or function within the startups ecosystem: <span className={styles.DealBulletPoints}>Represents an organization.</span></p>
                 </div>
-                <div className={styles.LogoWrapper}>
-                    <Image 
-                        alt='Jupter logo'
-                        className='Logo'
-                        src="/jupter-logo.png"
-                        width={200}
-                        height={50}
-                    />
+
+                <div className={styles.DealInformationSection}>
+                    <p className={styles.DealInformationTitle}>Organization's name: <span className={styles.DealBulletPoints}>The New Org.</span></p>
                 </div>
+
+                <div className={styles.DealInformationSection}>
+                    <p className={styles.DealInformationTitle}>Website: <a className={styles.DealLink}>http://localhost:3000</a></p>
+                </div>
+
+                <div className={styles.DealInformationSection}>
+                    <p className={styles.DealInformationTitle}>State the organization is more active: <span className={styles.DealBulletPoints}>PR.</span></p>
+                </div>
+
+                <div className={styles.DealInformationSection}>
+                    <p className={styles.DealInformationTitle}>How many funds or investment vehicles the org has: <span className={styles.DealBulletPoints}>R$2000,00.</span></p>
+                </div>
+
+                <div className={styles.DealInformationSection}>
+                    <p className={styles.DealInformationTitle}>Preferences of the Organization:</p>
+                    <p className={styles.DealBulletPoints}>- Describes itself as a Private Equity.</p>
+                    <p className={styles.DealBulletPoints}>- Organization is more used to invest in Pre-seed stage.</p>
+                    <p className={styles.DealBulletPoints}>- The main funding stage is Angel.</p>
+                    <p className={styles.DealBulletPoints}>- The organization is open to invest in different sectors.</p>
+                    <p className={styles.DealBulletPoints}>- Mostly focused on Agrotech and Fintech.</p>
+                    <p className={styles.DealBulletPoints}>- There're 15 startups that are part of their portfolio.</p>
+                    <p className={styles.DealBulletPoints}>- R$180.000,00 under management.</p>
+                </div>
+
+                <div className={styles.DealInformationSection}>
+                    <p className={styles.DealInformationTitle}>Org's numbers:</p>
+                    <p className={styles.DealBulletPoints}>- Either leads and participates in investment rounds.</p>
+                    <p className={styles.DealBulletPoints}>- Dry Powder of R$45.000,00.</p>
+                    <p className={styles.DealBulletPoints}>- Min ticket of R$45.000,00.</p>
+                    <p className={styles.DealBulletPoints}>- Max ticket of R$45.000,00.</p>
+                    <p className={styles.DealBulletPoints}>- Most recurrent investment ticket of R$45.000,00.</p>
+                </div>
+            </div>
+            <div className={styles.ButtonsBox}>
+                <Link className={styles.ButtonLink} href="/deals"><Button text="Reserve my quota"/></Link>
+                <Link href="/deals/not-interested"><Button text="Unfollow Deal"/></Link>
             </div>
         </div>
     );
