@@ -1,45 +1,16 @@
-import styles from './skeletons.module.css';
+import styles from './more-info-card.module.css';
 
-import { 
-    Button, 
-    NotInterestedButton 
-} from '@/app/ui/components/Buttons/buttons';
+import { FounderProfile } from "@/app/lib/definitions";
 
-import Image from 'next/image';
-import Link from 'next/link';
+import Link from "next/link";
+import { Button } from '../Buttons/buttons';
 
 
-export function FounderProfileCardSkeleton() {
-    return (
-        <div className={styles.ModalContent}>
-            <p className={styles.ModalHeading}>
-                Some Founder’s Startup
-            </p>
-            <div className={styles.CompanyLogoWrapper}>
-                <Image 
-                    alt='Company Logo'
-                    className={styles.ProfileImage}
-                    height={230}
-                    src="/icon-user.png"
-                    width={230}
-                />
-            </div>
-            <p className={styles.DealDescription}>
-                Let’s close a deal?
-            </p>
-            <div className={styles.ButtonsBox}>
-                <Link className={styles.DisabledLink} aria-disabled href="">
-                    <Button text="More info"/>
-                </Link>
-                <Link className={styles.DisabledLink} href="">
-                    <NotInterestedButton text='Not interested'/>
-                </Link>
-            </div>
-        </div>
-    );
-}
-
-export function MoreInfoCardSkeleton() {
+export default function MoreInfoCard({
+    founderProfile
+}: {
+    founderProfile: FounderProfile
+}) {
     return (
         <>
             <div className={styles.ModalHeader}>
