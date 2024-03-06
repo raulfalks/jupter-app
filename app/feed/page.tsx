@@ -1,4 +1,4 @@
-import styles from './deals.module.css';
+import styles from './home.module.css';
 
 import Logo from '@/app/ui/components/Logo/jupter-logo';
 import FounderProfileCard from '@/app/ui/components/FounderProfileCard/FounderProfileCard';

@@ -12,15 +12,15 @@ export default function Layout({
             <div className={styles.Container}>
                 <div className={styles.Modal}>
                     {children}
-                    <div className={styles.LogoWrapper}>
-                        <Image 
-                            alt='Jupter logo'
-                            className='Logo'
-                            src="/jupter-logo.png"
-                            width={200}
-                            height={50}
-                        />
-                    </div>
+                </div>
+                <div className={styles.LogoWrapper}>
+                    <Image 
+                        alt='Jupter logo'
+                        className='Logo'
+                        src="/jupter-logo.png"
+                        width={200}
+                        height={50}
+                    />
                 </div>
             </div>
         </div>

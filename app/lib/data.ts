@@ -1,5 +1,5 @@
 import { authConfig } from "@/auth.config";
-import { Company, FounderProfile, GetFounderProfileResponse } from './definitions';
+import { Company, FounderProfile, GetFounderProfileResponse, InvestmentStage, InvestmentSector } from './definitions';
 
 import { unstable_noStore as noStore } from "next/cache";
 import getServerSession from 'next-auth';
@@ -26,9 +26,11 @@ export async function fetchCompanyMoreInfo(
         if (result.status == 404) return null;
 
         const response = await result.json();
-        var company = response.founderCompany as Company;
         var founderProfile = response.founderProfile as FounderProfile;
-        founderProfile.company = company;
+        founderProfile.company = response.founderCompany as Company;
+        founderProfile.participationStage = response.participationStage as InvestmentStage;
+        founderProfile.sectors = response.sectors as InvestmentSector[];
+        founderProfile.stageUsedToInvest = response.stageUsedToInvest as InvestmentStage;
 
         return founderProfile;
     } catch (error) {
