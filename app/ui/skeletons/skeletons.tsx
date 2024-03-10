@@ -92,8 +92,8 @@ export function MoreInfoCardSkeleton() {
                 </div>
             </div>
             <div className={styles.ButtonsBox}>
-                <Link className={styles.ButtonLink} href="/deals"><Button text="Reserve my quota"/></Link>
-                <Link href="/deals/not-interested"><Button text="Unfollow Deal"/></Link>
+                <Link className={styles.ButtonLink} href="/deals"><Button text="Follow"/></Link>
+                <Link href="/deals/not-interested"><Button text="Dismiss"/></Link>
             </div>
         </>
     );
