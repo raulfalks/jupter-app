@@ -9,15 +9,14 @@ import { Suspense } from 'react';
 
 
 export default async function Page({
-    searchParams
+    params
 }: {
-    searchParams: {
-        pageNumber: string
+    params: {
+        page: string
     }
 }) {
-    const pageNumber = Number(searchParams.pageNumber) || 1;
+    const pageNumber = Number(params.page) || 1;
     const founderProfile = await fetchFeedProfilesData(pageNumber);
-    // const companiesCount = await fetchCountCompanies();
 
     return (
         <div className={styles.Section}>

@@ -1,4 +1,5 @@
 import type { NextAuthConfig } from 'next-auth';
+import { number } from 'zod';
 
 
 export enum Routes {
@@ -14,24 +15,22 @@ export enum Routes {
 export function validateRouteAuthorization(
     pathname: string
 ) {
-    switch (pathname) {
-        case Routes.Feed.toString():
-            return true;
+    var urlSplitted = pathname.split("/");
+    console.log(urlSplitted);
 
-        case Routes.FeedNotInterested.toString():
+    if (pathname.startsWith(Routes.Feed.toString())) {
+        if (pathname.startsWith(Routes.FeedMoreInfo))
             return true;
-
-        case Routes.FeedMoreInfo.toString():
+        if (pathname.startsWith(Routes.FeedNotInterested))
             return true;
-
-        case Routes.FounderProfile.toString():
-            return true;
-
-        case Routes.InvestorProfile.toString():
-            return true;
-            
-        default:
-            return false;
+        
+        return true;
+    } else if (pathname.startsWith(Routes.FounderProfile)) {
+        return true;
+    } else if (pathname.startsWith(Routes.InvestorProfile)) {
+        return true;
+    } else {
+        return false;
     }
 }
 
