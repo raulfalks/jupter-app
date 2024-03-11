@@ -1,22 +1,28 @@
-import styles from './more-info.module.css';
+import styles from '../more-info.module.css';
 
 import { Suspense } from 'react';
 
 import { MoreInfoCardSkeleton } from '@/app/ui/skeletons/skeletons';
 import MoreInfoCard from '@/app/ui/components/MoreInfoCard/MoreInfoCard';
 import { fetchCompanyMoreInfo } from '@/app/lib/data';
+import { FounderProfile } from '@/app/lib/definitions';
 
 
 export default async function Page({
-    searchParams
+    params
 }: {
-    searchParams: 
+    params: 
     { 
         id: string 
     }
 }) {
-    const founderId = Number(searchParams.id);
-    const founderProfile = await fetchCompanyMoreInfo(founderId);
+    const founderId = Number(params.id);
+    var founderProfile: FounderProfile | null; 
+
+    if (founderId)
+        founderProfile = await fetchCompanyMoreInfo(founderId);
+    else
+        founderProfile = null;
 
 
     return (

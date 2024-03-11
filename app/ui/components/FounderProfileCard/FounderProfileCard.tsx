@@ -45,10 +45,10 @@ export default function FounderProfileCard({
                 Let’s close a deal?
             </p>
             <div className={styles.ButtonsBox}>
-                <Link href={`/feed/more-info?id=${data.founderProfile.id}`}>
+                <Link href={`/feed/more-info/${data.founderProfile.id}`}>
                     <Button text="More info"/>
                 </Link>
-                <Link href={`/feed/not-interested?id=${data.founderProfile.id}`}>
+                <Link href={`/feed/not-interested/${data.founderProfile.id}`}>
                     <NotInterestedButton text='Not interested'/>
                 </Link>
             </div>

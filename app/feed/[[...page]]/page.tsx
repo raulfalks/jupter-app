@@ -17,6 +17,7 @@ export default async function Page({
 }) {
     const pageNumber = Number(params.page) || 1;
     const founderProfile = await fetchFeedProfilesData(pageNumber);
+    
 
     return (
         <div className={styles.Section}>

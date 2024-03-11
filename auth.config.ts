@@ -15,9 +15,6 @@ export enum Routes {
 export function validateRouteAuthorization(
     pathname: string
 ) {
-    var urlSplitted = pathname.split("/");
-    console.log(urlSplitted);
-
     if (pathname.startsWith(Routes.Feed.toString())) {
         if (pathname.startsWith(Routes.FeedMoreInfo))
             return true;
