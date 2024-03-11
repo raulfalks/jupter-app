@@ -1,4 +1,4 @@
-import styles from './deals.module.css';
+import styles from './feed.module.css';
 
 import Logo from '@/app/ui/components/Logo/jupter-logo';
 import FounderProfileCard from '@/app/ui/components/FounderProfileCard/FounderProfileCard';
@@ -9,15 +9,15 @@ import { Suspense } from 'react';
 
 
 export default async function Page({
-    searchParams
+    params
 }: {
-    searchParams: {
-        pageNumber: string
+    params: {
+        page: string
     }
 }) {
-    const pageNumber = Number(searchParams.pageNumber) || 1;
+    const pageNumber = Number(params.page) || 1;
     const founderProfile = await fetchFeedProfilesData(pageNumber);
-    // const companiesCount = await fetchCountCompanies();
+    
 
     return (
         <div className={styles.Section}>

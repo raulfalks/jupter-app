@@ -16,9 +16,9 @@ export default function Page() {
                             emailLabel="Login"
                             passwordLabel="Password"
                         />
-                        <Logo />
                     </div>
                 </div>
+                <Logo />
             </div>
         </div>
     );
