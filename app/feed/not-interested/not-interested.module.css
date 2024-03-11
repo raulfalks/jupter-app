@@ -30,6 +30,16 @@
 	width: 100%;
 }
 
+.ModalContent_Error {
+	align-items: center;
+    display: flex;
+	flex-direction: column;
+	height:100vh;
+	justify-content: center;
+	max-width: 1165px;
+	width: 100%;
+}
+
 .ModalHeader {
 	align-items: center;
     display: flex;
@@ -58,6 +68,14 @@
 	color: #FE6433;
 	cursor: pointer;
 	text-decoration: underline;
+}
+
+.DealInformationSection_Error {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 0 0 40px;
 }
 
 .DealDescription {

@@ -1,7 +1,7 @@
-import styles from "./text-area.module.css";
+import styles from "./not-interested-textarea.module.css";
 
 
-export default function TextArea({
+export default function NotInterestedTextArea({
     label
 }: {
     label: string
