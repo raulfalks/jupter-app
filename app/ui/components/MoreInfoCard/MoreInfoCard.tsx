@@ -52,7 +52,7 @@ export default function MoreInfoCard({
 
 
     return (
-        <>
+        <div className={styles.TextDiv}>
             <div className={styles.ModalHeader}>
                 <p className={styles.ModalHeading}>
                     That is awesome!
@@ -157,9 +157,9 @@ export default function MoreInfoCard({
                 </div>
             </div>
             <div className={styles.ButtonsBox}>
-                <Link className={styles.ButtonLink} href="/deals"><Button text="Follow"/></Link>
-                <Link href="/deals/not-interested"><Button text="Dismiss"/></Link>
+                <Link className={styles.ButtonLink} href="/feed"><Button text="Follow"/></Link>
+                <Link href="/feed"><Button text="Dismiss"/></Link>
             </div>
-        </>
+        </div>
     );
 }

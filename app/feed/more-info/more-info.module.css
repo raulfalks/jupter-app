@@ -1,17 +1,18 @@
 .Section {
-    background: url("../../../public/deal-description-bg.png");
+    background: url("../../../public/rings-horizontal-bg.png");
     background-position: center;
     background-size: cover;
-    height: 100%;
+    height: 100vh;
 	position: relative;
 }
 
 .Container {
 	align-items: center;
-  display: flex;
-	flex-direction: column;
+  	display: flex;
 	height: 100%;
-	padding: 100px 0 0;
+	flex-direction: column;
+	justify-content: center;
+	padding: 85px 0 175px 0;
 	position: relative;
 }
 
@@ -19,13 +20,16 @@
     background: var(--BG, linear-gradient(169deg, #282828 8.42%, #202020 48.96%, #202020 95.87%));
     border: 1px solid rgba(255, 255, 255, 0.10);
     border-radius: 40px;
-	padding: 50px;
+	height: 100%;
+	padding: 30px 15px 30px 45px;
+	width: 75%;
 }
 
 .ModalContent {
 	align-items: center;
     display: flex;
 	flex-direction: column;
+	height: 100%;
 	justify-content: center;
 	max-width: 1165px;
 	width: 100%;

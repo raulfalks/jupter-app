@@ -1,27 +1,3 @@
-.Section {
-    background: url("../../../../public/deal-description-bg.png");
-    background-position: center;
-    background-size: cover;
-    height: 100%;
-	position: relative;
-}
-
-.Container {
-	align-items: center;
-  display: flex;
-	flex-direction: column;
-	height: 100%;
-	padding: 100px 0 0;
-	position: relative;
-}
-
-.Modal { 
-    background: var(--BG, linear-gradient(169deg, #282828 8.42%, #202020 48.96%, #202020 95.87%));
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    border-radius: 40px;
-	padding: 50px;
-}
-
 .ModalContent {
 	align-items: center;
     display: flex;
@@ -39,6 +15,26 @@
 	justify-content: center;
 	max-width: 1165px;
 	width: 100%;
+}
+
+.TextDiv {
+	overflow: scroll;
+	overflow-x: hidden;
+}
+
+.TextDiv::-webkit-scrollbar {
+	width: 10px;
+}
+
+.TextDiv::-webkit-scrollbar-thumb {
+	background-color: #252525;
+	border: 2px solid #373737;
+	border-radius: 10px;
+}
+
+.TextDiv::-webkit-scrollbar-track {
+	background-color: #373737;
+	border-radius: 10px;
 }
 
 .ModalHeader{
@@ -63,6 +59,7 @@
 
 .DealInformationSection {
 	margin: 0 0 40px;
+	width: 90%;
 }
 
 .DealInformationSection_Error {
